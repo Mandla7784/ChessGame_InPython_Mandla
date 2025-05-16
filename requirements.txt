@@ -1,0 +1,4 @@
+# 02 named_entity_recognition
+spacy==3.7.2
+
+...
