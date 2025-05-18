@@ -4,9 +4,6 @@ class GameScreen:
     
     
     
-        
-
-
 if __name__=="__main__":
     screen = GameScreen()
     

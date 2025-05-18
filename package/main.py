@@ -27,7 +27,5 @@ def main():
     print_board(board=board)
 
     
-    
-    
 if __name__=="__main__":
     main()
