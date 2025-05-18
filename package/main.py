@@ -1,8 +1,6 @@
 import pygame
 pygame.init()
 
-
-
 def create_board():
     columns = '  A B C D E F G H'
     board = [
@@ -35,8 +33,6 @@ def print_board():
       
 def main():
     print_board()
-
-
     
 if __name__=="__main__":
     main()
