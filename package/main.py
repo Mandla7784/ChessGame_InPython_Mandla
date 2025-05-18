@@ -4,6 +4,8 @@ pygame.init()
 
 def create_board():
     board = [
+        ["w","h","i","t","ePieces"],
+        [" "] * 8,
       ["r", "n", "b", "q", "k", "b", "n", "r"],  # Black pieces
         ["p"] * 8,
         [" "] * 8,
@@ -12,6 +14,8 @@ def create_board():
         [" "] * 8,
         ["P"] * 8,
         ["R", "N", "B", "Q", "K", "B", "N", "R"],  # White pieces  
+        [" "] * 8,
+        ["B","l","a","c","k","p","i","e","c","es"]
     ]
     
     return board
