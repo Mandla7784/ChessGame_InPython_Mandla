@@ -1,3 +1,5 @@
+from abc import ABC,abstractmethod
+
 
 class Piece:
     def __init__(self,color , x ,y):
@@ -10,6 +12,38 @@ class Piece:
     
     
     #check valid move on a piece 
+    @abstractmethod
+    def is_valid_move(self , new_x , new_y  ,board):
+        pass
+    
+        
+
+     #setting a new position of a piece on board 
+    @abstractmethod  
+    def set_moves(self, new_x, new_y , board):
+      pass
+  
+  
+    @abstractmethod
+    def getMoves(self , position , board):
+        #logic for moves
+        return []
+    @abstractmethod
+    
+    
+    @abstractmethod
+    def set_position(self , board):
+        pass
+    @abstractmethod
+    
+    def get_position(self, board):
+        ...
+      
+#creating a Pawn pievc extending the abstract class 
+class Pawn(Piece):
+    def __init__(self, color , x, y):
+        super().__init__(color ,x ,y)
+        
     def is_valid_move(self , new_x , new_y  ,board):
         
         if self.color == "white":
@@ -21,8 +55,7 @@ class Piece:
             return False
         return True
     
-        
-     #setting a new position of a piece on board   
+    
     def set_moves(self, new_x, new_y , board):
         
         if(new_x > 0 and new_y > 0):
@@ -30,23 +63,22 @@ class Piece:
             self.y = new_y
         else:
             return not self.is_valid_move(new_x , new_y , board)
-            
-         
-    def getMoves(self , position , board):
-        #logic for moves
-        return []
-    def set_position(self , board):
-        pass
-    def get_position(self, board):
-        ...
-      
-#creating a Pawn pievc extending the abstract class 
-class Pawn(Piece):
-    def __init__(self, color , x, y):
-        super().__init__(color ,x ,y)
         
-       
-
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
 if  __name__== "__main__":
     
     piece = Piece()
