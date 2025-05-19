@@ -1,7 +1,8 @@
 from abc import ABC,abstractmethod
 
 
-class Piece:
+#Abstract class 
+class Piece(ABC):
     def __init__(self,color , x ,y):
         self.color = color 
         self.x = x
