@@ -84,11 +84,24 @@ class Pawn(Piece):
             moves.append((new_x, new_y))
             
         return moves
-    
-    
+class Bishop(Piece):
+    def __init__(self, color, x, y):
+        super().__init__(color, x, y)
         
-  
         
+        
+class Rook(Piece):
+    def __init__(self, color, x, y):
+        super().__init__(color, x, y)
+        
+        
+class King(Piece):
+    def __init__(self, color, x, y):
+        super().__init__(color, x, y)
+        
+        
+        
+         
 if  __name__== "__main__":
     
     board = [[None for _ in range(8)] for _ in range(8)]
