@@ -1,5 +1,7 @@
 # 📌 Key Takeaways – 16 May 2025
 
+## DevOops Engineering
+
 Today, I explored more about **DevOps**, focusing on:
 
 - 🔧 Configuring **CI/CD pipelines** using **GitHub Actions** (`deploy.yml`)
@@ -40,4 +42,5 @@ I struggled with deploying using Kubernetes.
 Still learning how to use kubectl and write the correct yaml deployment files.
 
 # Author:Mandla
+
 # ChessGame_InPython_Mandla
