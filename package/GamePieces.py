@@ -26,10 +26,9 @@ class Piece(ABC):
   
   
     @abstractmethod
-    def getMoves(self , position , board):
-        #logic for moves
-        return []
-    @abstractmethod
+    def get_moves(self , board):
+     pass
+
     
     
     @abstractmethod
@@ -65,23 +64,43 @@ class Pawn(Piece):
         else:
             return not self.is_valid_move(new_x , new_y , board)
         
+    def set_position(self, board):
+       board[self.y][self.x] = self
+       
+       
+    def get_position(self):
+        return self.x , self.y
+    
+    
         
+    def get_moves(self,board):
+        moves = []
+        direction = 1 if self.color == "white" else  -1
+        new_x = self.x
+        new_y = self.y
+        new_y  = self.y + direction
         
+        if 0 <= new_y < len(board) and board[new_y][new_x] is None:
+            moves.append((new_x, new_y))
+            
+        return moves
+    
+    
         
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+  
         
 if  __name__== "__main__":
     
-    piece = Piece()
+    board = [[None for _ in range(8)] for _ in range(8)]
     
+    pawn = Pawn("white", 4, 1)
+    print(pawn)  # white Pawn at (4, 1)
     
+    pawn.set_position(board)
+    
+    print("Valid Moves:", pawn.get_moves( board))
+    
+    if pawn.set_moves(4, 2, board):
+        print("Moved to:", pawn.get_position(board))
+    else:
+        print("Invalid move")
