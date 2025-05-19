@@ -99,8 +99,7 @@ class King(Piece):
     def __init__(self, color, x, y):
         super().__init__(color, x, y)
         
-        
-        
+       
          
 if  __name__== "__main__":
     
