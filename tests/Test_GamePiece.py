@@ -4,9 +4,6 @@ class TestGamePiece(unittest.TestCase):
     def __init__(self, methodName = "runTest"):
         super().__init__(methodName)
         
-        
-
-
 
 
 
