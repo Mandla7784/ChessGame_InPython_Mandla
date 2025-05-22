@@ -1,5 +1,5 @@
-import pygame
-pygame.init()
+from GamePieces import Pawn , Bishop , King
+import sys
 #Changes
 
 def create_board():
@@ -27,13 +27,56 @@ def create_board():
                 line += square_color + " "
         print(line)
     print(columns)
+   
+   
+def game_loop():
+    board = create_board()  
+    #creating Pieces
+    white_pawn = Pawn("white", 4 , 1)
+    black_paw =  Pawn("black",4 , 6 )
+    white_pawn.set_position(board)
+    black_paw.set_position(board)
+    players = ["white","black"]
+               
+    turn = 0
     
-def print_board():
-    create_board()
+    while True:
+        current_color = players[turn % 2]
+        print(board)
+        print(f"{current_color}'s turn")
         
-      
+        
+        
+        move= input("Enter move (x1 y1 x2 y2) or 'q' to quit:)").strip()
+        if move.lower() == 'q':
+            print("Game ended")
+            sys.exit
+            break
+        
+        try:
+             x1, y1, x2, y2  = map(int ,move.split())
+        except ValueError:
+           print("Invalid input")
+           continue
+       
+       
+        piece =board[y1][x1]
+       
+       
+        if piece is None:
+           print("No piece at that position")
+            
+        if piece.color != current_color:
+            print("That is not your piece")
+            continue
+        
+        
+        
 def main():
-    print_board()
+    #Game loop 
+    pass
+    
+    
     
 if __name__=="__main__":
     main()
