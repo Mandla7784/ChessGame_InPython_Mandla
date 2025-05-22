@@ -1,7 +1,7 @@
-from GamePieces import Pawn , Bishop , King
+from GamePieces import Pawn, Bishop, King
 import sys
-#Changes
 
+# Create the board and display it
 def create_board():
     columns = '  A B C D E F G H'
     board = [
@@ -27,56 +27,73 @@ def create_board():
                 line += square_color + " "
         print(line)
     print(columns)
-   
-   
+
+    return board  # RETURN the board so it's usable in game_loop()
+
+# Game loop
 def game_loop():
-    board = create_board()  
-    #creating Pieces
-    white_pawn = Pawn("white", 4 , 1)
-    black_paw =  Pawn("black",4 , 6 )
+    board = create_board()
+
+    # Creating Pieces
+    white_pawn = Pawn("white", 4, 6)
+    black_pawn = Pawn("black", 4, 1)
+
+    board[6][4] = white_pawn  # Replace character with object
+    board[1][4] = black_pawn
+
     white_pawn.set_position(board)
-    black_paw.set_position(board)
-    players = ["white","black"]
-               
+    black_pawn.set_position(board)
+
+    players = ["white", "black"]
     turn = 0
-    
+
     while True:
         current_color = players[turn % 2]
-        print(board)
-        print(f"{current_color}'s turn")
-        
-        
-        
-        move= input("Enter move (x1 y1 x2 y2) or 'q' to quit:)").strip()
+
+        print(f"\n{current_color}'s turn")
+        move = input("Enter move (x1 y1 x2 y2) or 'q' to quit: ").strip()
         if move.lower() == 'q':
-            print("Game ended")
-            sys.exit
+            print("Game ended.")
             break
-        
+
         try:
-             x1, y1, x2, y2  = map(int ,move.split())
+            x1, y1, x2, y2 = map(int, move.split())
         except ValueError:
-           print("Invalid input")
-           continue
-       
-       
-        piece =board[y1][x1]
-       
-       
-        if piece is None:
-           print("No piece at that position")
-            
-        if piece.color != current_color:
-            print("That is not your piece")
+            print("Invalid input format.")
             continue
-        
-        
-        
+
+        try:
+            piece = board[y1][x1]
+        except IndexError:
+            print("Invalid board position.")
+            continue
+
+        if piece == " " or piece is None:
+            print("No piece at that position.")
+            continue
+
+        if not hasattr(piece, "color") or piece.color != current_color:
+            print("That is not your piece.")
+            continue
+
+        if piece.is_valid_move(x2, y2, board):
+            if piece.get_name() == "pawn" and y2 < y1 and piece.color == "white":
+                print("White pawn cannot move backward.")
+                continue
+            if piece.get_name() == "pawn" and y2 > y1 and piece.color == "black":
+                print("Black pawn cannot move backward.")
+                continue
+
+            board[y1][x1] = " "
+            board[y2][x2] = piece
+            piece.set_moves(x2, y2, board)
+            turn += 1
+        else:
+            print("Invalid move. Try again.")
+
+# Main function
 def main():
-    #Game loop 
-    pass
-    
-    
-    
-if __name__=="__main__":
+    game_loop()  
+
+if __name__ == "__main__":
     main()
