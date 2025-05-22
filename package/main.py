@@ -1,14 +1,24 @@
 from GamePieces import Pawn, Bishop, King
 from Board import Board
 
+
+import pygame
 import sys
 
 
 #TODO : Adding music background 
 
-
-
-
+def start_music():
+    pygame.mixer.init()
+    pygame.mixer.music.load("chess.mp3")
+    pygame.mixer.music.set_volume(0.2) 
+    pygame.mixer.music.play(-1)
+    
+    
+    
+def stop_music():
+        pygame.mixer.music.pause() 
+    
 # Game loop
 def game_loop():
     board =   Board.create_board()
@@ -28,11 +38,13 @@ def game_loop():
 
     while True:
         current_color = players[turn % 2]
+        start_music()
 
         print(f"\n{current_color}'s turn")
         move = input("Enter move (x1 y1 x2 y2) or 'q' to quit: ").strip()
         if move.lower() == 'q':
             print("Game ended.")
+            stop_music()
             sys.exit #exiting the systems
             break
 
