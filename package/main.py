@@ -1,38 +1,11 @@
 from GamePieces import Pawn, Bishop, King
+from Board import Board
+
 import sys
-
-# Create the board and display it
-def create_board():
-    columns = '  A B C D E F G H'
-    board = [
-        ["r", "n", "b", "q", "k", "b", "n", "r"],  # 8
-        ["p"] * 8,                                # 7
-        [" "] * 8,                                # 6
-        [" "] * 8,                                # 5
-        [" "] * 8,                                # 4
-        [" "] * 8,                                # 3
-        ["P"] * 8,                                # 2
-        ["R", "N", "B", "Q", "K", "B", "N", "R"]   # 1
-    ]
-
-    print(columns)
-    for row in range(8):
-        line = f"{8 - row} "
-        for col in range(8):
-            piece = board[row][col]
-            square_color = "⬛" if (row + col) % 2 == 0 else "⬜"
-            if piece != " ":
-                line += piece + " "
-            else:
-                line += square_color + " "
-        print(line)
-    print(columns)
-
-    return board  # RETURN the board so it's usable in game_loop()
 
 # Game loop
 def game_loop():
-    board = create_board()
+    board =   Board.create_board()
 
     # Creating Pieces
     white_pawn = Pawn("white", 4, 6)
@@ -54,6 +27,7 @@ def game_loop():
         move = input("Enter move (x1 y1 x2 y2) or 'q' to quit: ").strip()
         if move.lower() == 'q':
             print("Game ended.")
+            sys.exit #exiting the systems
             break
 
         try:
