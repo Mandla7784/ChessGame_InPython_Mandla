@@ -3,6 +3,12 @@ from Board import Board
 
 import sys
 
+
+#TODO : Adding music background 
+
+
+
+
 # Game loop
 def game_loop():
     board =   Board.create_board()
