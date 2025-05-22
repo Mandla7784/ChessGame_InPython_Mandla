@@ -45,7 +45,7 @@ def game_loop():
         if move.lower() == 'q':
             print("Game ended.")
             stop_music()
-            sys.exit #exiting the systems
+            sys.exit() #exiting the systems
             break
 
         try:
