@@ -34,8 +34,8 @@ class Piece(ABC):
     @abstractmethod
     def set_position(self , board):
         pass
+
     @abstractmethod
-    
     def get_position(self, board):
         ...
       
@@ -55,15 +55,17 @@ class Pawn(Piece):
             return False
         return True
     
-    
+  # moving the piece with checking if its a valid move
     def set_moves(self, new_x, new_y , board):
-        
-        if(new_x > 0 and new_y > 0):
-            self.x = new_x
+        if self.is_valid_move(new_x , new_y , board):
+            self.x  = new_x
             self.y = new_y
-        else:
-            return not self.is_valid_move(new_x , new_y , board)
-        
+            return True
+        return False
+    
+            
+    
+       
     def set_position(self, board):
        board[self.y][self.x] = self
        
@@ -72,7 +74,7 @@ class Pawn(Piece):
         return self.x , self.y
     
     
-        
+
     def get_moves(self,board):
         moves = []
         direction = 1 if self.color == "white" else  -1
