@@ -1,3 +1,0 @@
-
-This is how I am growing my skills
-My DevOps goals: masteer Linux ,Docker , CI/CD
