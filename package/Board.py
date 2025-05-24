@@ -13,26 +13,22 @@ Retain the square color pattern when empty.
 
 class Board:
     def __init__(self):
-        pass
-    
-    
-
-
-        # Create the board and display it
-    def create_board():
-        columns = '  A B C D E F G H'
-        board = [
-            ["r", "n", "b", "q", "k", "b", "n", "r"],  # 8
-            ["p"] * 8,                                # 7
+        self.columns = '  A  B  C  D  E  F  G  H'
+        self.board = [
+            ["♜", "♞", "♝", "♛", "♚", "♝", "♞", "♜"],  # 8
+            ["♟"] * 8,                                # 7
             [" "] * 8,                                # 6
             [" "] * 8,                                # 5
             [" "] * 8,                                # 4
             [" "] * 8,                                # 3
-            ["P"] * 8,                                # 2
-            ["R", "N", "B", "Q", "K", "B", "N", "R"]   # 1
+            ["♙"] * 8,                                # 2
+            ["♖", "♘", "♗", "♕", "♔", "♗", "♘", "♖"]   # 1
         ]
+    
 
-        print(columns)
+        # Create the board and display it
+    def create_board():
+      
         for row in range(8):
             line = f"{8 - row} "
             for col in range(8):
@@ -43,6 +39,6 @@ class Board:
                 else:
                     line += square_color + " "
             print(line)
-        print(columns)
+
 
         return board  # RETURN the board so it's usable in game_loop()
