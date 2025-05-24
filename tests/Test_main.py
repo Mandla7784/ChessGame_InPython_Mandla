@@ -3,8 +3,6 @@ from main import  create_board  , start_music , stop_music
 from unittest.mock import patch
 
 
-import pygame
-
 class Test_Main(unittest.TestCase):
     def __init__(self, methodName = "runTest"):
         super().__init__(methodName)
@@ -25,7 +23,7 @@ class Test_Main(unittest.TestCase):
                                                     
                          
                          """)
-        
+
         
         
 @patch("pygame.mixer.music.play")
