@@ -15,7 +15,6 @@ class Board:
     @staticmethod
     def create_board() -> list[list[str]]:
         columns = '  A  B  C  D  E  F  G  H'
-
         board = [
     ["♜", "♞", "♝", "♛", "♚", "♝", "♞", "♜"],
     ["♟", "♟", "♟", "♟", "♟", "♟", "♟", "♟"],
