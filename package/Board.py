@@ -10,14 +10,7 @@ Retain the square color pattern when empty.
 
 
 """
-class Board:
-
- 
-    
-    # TODO: 
-
-      
-
+class Board:    
   # Create the board and display it
     @staticmethod
     def create_board() -> list[list[str]]:
