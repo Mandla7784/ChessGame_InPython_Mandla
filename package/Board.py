@@ -1,6 +1,22 @@
+""""
+ TODO: 
+ Proper method definition (self) and class usage.
+
+Use Unicode chess pieces for a visual appeal.
+
+Align the board properly so it doesn’t look jagged.
+
+Retain the square color pattern when empty.
+
+
+"""
+
 class Board:
     def __init__(self):
         pass
+    
+    
+
 
         # Create the board and display it
     def create_board():
