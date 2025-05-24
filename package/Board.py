@@ -16,7 +16,7 @@ class Board:
         pass
     
     
-
+    # TODO: 
 
         # Create the board and display it
     def create_board():
