@@ -44,3 +44,5 @@ Still learning how to use kubectl and write the correct yaml deployment files.
 # Author:Mandla
 
 # ChessGame_InPython_Mandla
+
+Still need to work on improving functionality

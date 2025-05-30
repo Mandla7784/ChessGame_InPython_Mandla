@@ -14,8 +14,6 @@ def start_music():
     pygame.mixer.music.set_volume(0.2) 
     pygame.mixer.music.play(-1)
     
-    
-    
 def stop_music():
         pygame.mixer.music.pause() 
     

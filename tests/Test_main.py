@@ -20,12 +20,10 @@ class Test_Main(unittest.TestCase):
 2 ♙ ♙ ♙ ♙ ♙ ♙ ♙ ♙ 
 1 ♖ ♘ ♗ ♕ ♔ ♗ ♘ ♖ 
   A  B  C  D  E  F  G  H
-                                                    
+                                                  
                          
                          """)
 
-        
-        
 @patch("pygame.mixer.music.play")
 @patch("pygame.mixer.music.set_volume")
 @patch("pygame.mixer.music.load")
